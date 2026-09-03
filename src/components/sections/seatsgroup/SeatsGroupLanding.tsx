@@ -61,19 +61,15 @@ export function SeatsGroupLanding() {
 
             <div className="sg-eco-follow">
               <div className="shrink-0">
-                <p className="text-center font-tech text-[9px] font-bold uppercase tracking-[0.2em] text-brand-orange sm:text-[11px]">
-                  {seatsGroup.ecosystemEyebrow}
-                </p>
+                <div className="mb-3 flex justify-center sm:mb-3.5">
+                  <p className="sg-hero-pill">{seatsGroup.ecosystemEyebrow}</p>
+                </div>
                 <EcosystemCards />
               </div>
 
               <div className="sg-more-panel shrink-0 rounded-[1.15rem] px-3 py-3 sm:rounded-[1.35rem] sm:px-6 sm:py-4">
-                <div className="flex items-center justify-center gap-2.5">
-                  <span className="sg-more-dot shrink-0" />
-                  <p className="shrink-0 font-tech text-[9px] font-bold uppercase tracking-[0.22em] text-brand-orange sm:text-[11px]">
-                    {seatsGroup.moreEyebrow}
-                  </p>
-                  <span className="sg-more-dot shrink-0" />
+                <div className="flex justify-center">
+                  <p className="sg-hero-pill">{seatsGroup.moreEyebrow}</p>
                 </div>
                 <p className="sg-more-copy mx-auto mt-2 max-w-3xl text-center text-[11px] leading-snug text-white sm:mt-2.5 sm:text-[13.5px]">
                   {seatsGroup.moreText}

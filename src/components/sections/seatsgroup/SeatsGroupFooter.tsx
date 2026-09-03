@@ -11,12 +11,12 @@ export function SeatsGroupFooter() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.15fr_0.7fr_0.7fr_1fr] lg:gap-8">
           <div>
             <SeatsGroupLogo className="flex items-center gap-3" />
-            <p className="mt-5 max-w-sm text-[13px] leading-relaxed text-[#90caf9]">
+            <p className="mt-5 max-w-sm text-[13px] leading-relaxed text-white/70">
               {seatsGroup.enquiryLabel}
             </p>
             <a
               href={`mailto:${seatsGroup.email}`}
-              className="mt-3 inline-flex items-center gap-2 text-[14px] font-semibold text-white hover:text-brand-orange"
+              className="mt-3 inline-flex items-center gap-2 text-[14px] font-semibold text-brand-orange hover:text-white"
             >
               <Mail className="h-4 w-4 text-brand-orange" strokeWidth={1.8} />
               {seatsGroup.email}
@@ -25,24 +25,24 @@ export function SeatsGroupFooter() {
               {footer.phones.map((phone) => (
                 <p
                   key={phone.label}
-                  className="flex items-center gap-2 text-[13px] text-[#90caf9]"
+                  className="flex items-center gap-2 text-[13px] text-white/70"
                 >
                   <Phone className="h-3.5 w-3.5 text-brand-orange" strokeWidth={1.8} />
                   <span className="text-white/45">{phone.label}</span>
-                  <span>{phone.value}</span>
+                  <span className="text-white">{phone.value}</span>
                 </p>
               ))}
             </div>
           </div>
 
           <div>
-            <p className="eyebrow text-white/55">Platforms</p>
+            <p className="eyebrow text-brand-orange">Platforms</p>
             <ul className="mt-4 space-y-2.5">
               {footer.platforms.map((item) => (
                 <li key={item.name}>
                   <a
                     href={item.href}
-                    className="text-[13.5px] text-[#90caf9] transition-colors hover:text-white"
+                    className="text-[13.5px] text-white/70 transition-colors hover:text-white"
                   >
                     {item.name}
                   </a>
@@ -52,13 +52,13 @@ export function SeatsGroupFooter() {
           </div>
 
           <div>
-            <p className="eyebrow text-white/55">Company</p>
+            <p className="eyebrow text-brand-orange">Company</p>
             <ul className="mt-4 space-y-2.5">
               {footer.company.map((item) => (
                 <li key={item.name}>
                   <a
                     href={item.href}
-                    className="text-[13.5px] text-[#90caf9] transition-colors hover:text-white"
+                    className="text-[13.5px] text-white/70 transition-colors hover:text-white"
                   >
                     {item.name}
                   </a>
@@ -68,19 +68,19 @@ export function SeatsGroupFooter() {
           </div>
 
           <div>
-            <p className="eyebrow text-white/55">Offices</p>
+            <p className="eyebrow text-brand-orange">Offices</p>
             <ul className="mt-4 space-y-4">
               {footer.offices.map((office) => (
                 <li key={office.city} className="flex gap-2.5">
                   <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-orange" strokeWidth={1.8} />
                   <div>
-                    <p className="text-[13.5px] font-semibold text-white">
+                    <p className="text-[13.5px] font-semibold text-brand-orange">
                       {office.city}
                       <span className="ml-1.5 font-normal text-white/40">
                         {office.region}
                       </span>
                     </p>
-                    <p className="mt-0.5 text-[12.5px] leading-snug text-[#90caf9]">
+                    <p className="mt-0.5 text-[12.5px] leading-snug text-white/65">
                       {office.address}
                     </p>
                   </div>
@@ -99,7 +99,7 @@ export function SeatsGroupFooter() {
               <li key={item.name}>
                 <a
                   href={item.href}
-                  className="text-[12px] text-white/45 transition-colors hover:text-white"
+                  className="text-[12px] text-white/45 transition-colors hover:text-brand-orange"
                 >
                   {item.name}
                 </a>
