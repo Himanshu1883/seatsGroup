@@ -13,7 +13,7 @@ export function NextSection() {
           </h2>
           <span
             aria-hidden
-            className="mt-3 block h-px w-11 bg-brand-orange"
+            className="mt-3 block h-px w-11 bg-brand-icon"
           />
           <p className="mt-4 max-w-md text-[14px] leading-relaxed text-brand-gray-text sm:text-[15.5px]">
             {seatsGroup.nextText}
@@ -23,14 +23,14 @@ export function NextSection() {
             href={`mailto:${seatsGroup.email}`}
             className="sg-next-card mt-7 flex items-center gap-3.5 rounded-2xl bg-white px-4 py-4 sm:px-5"
           >
-            <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-orange text-white">
+            <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-icon text-white">
               <Mail className="h-5 w-5" strokeWidth={1.8} />
             </span>
             <span className="min-w-0">
               <span className="block text-[12.5px] leading-snug text-brand-gray-text sm:text-[13.5px]">
                 {seatsGroup.enquiryLabel}
               </span>
-              <span className="mt-1 inline-flex items-center gap-1.5 text-[14px] font-semibold text-brand-orange sm:text-[15px]">
+              <span className="mt-1 inline-flex items-center gap-1.5 text-[14px] font-semibold text-brand-icon sm:text-[15px]">
                 {seatsGroup.email}
                 <ArrowRight className="h-4 w-4" strokeWidth={2.2} />
               </span>
@@ -38,7 +38,7 @@ export function NextSection() {
           </a>
 
           <p className="mt-8 inline-flex items-center gap-2 font-tech text-[11px] tracking-wide text-[#0d47a1]">
-            <Shield className="h-3.5 w-3.5 text-brand-orange" strokeWidth={1.8} />
+            <Shield className="h-3.5 w-3.5 text-brand-icon" strokeWidth={1.8} />
             {seatsGroup.copyright}
           </p>
         </div>
@@ -52,22 +52,22 @@ export function NextSection() {
           >
             <path
               d="M28 48 C 130 10, 220 8, 300 38 C 380 68, 470 12, 532 24"
-              stroke="rgba(33,150,243,0.45)"
+              stroke="rgba(255,140,66,0.5)"
               strokeWidth="1.25"
               strokeDasharray="3 6"
             />
           </svg>
           <div className="pointer-events-none absolute left-[8%] top-2 z-10 hidden items-start gap-9 sm:flex">
-            <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-brand-orange bg-white text-brand-orange shadow-sm">
+            <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-brand-icon bg-white text-brand-icon shadow-sm">
               <Globe className="h-4 w-4" strokeWidth={1.8} />
             </span>
-            <span className="-mt-1 inline-flex h-9 w-9 items-center justify-center rounded-full border border-brand-orange bg-white text-brand-orange shadow-sm">
+            <span className="-mt-1 inline-flex h-9 w-9 items-center justify-center rounded-full border border-brand-icon bg-white text-brand-icon shadow-sm">
               <Ticket className="h-4 w-4" strokeWidth={1.8} />
             </span>
-            <span className="mt-3 inline-flex h-9 w-9 items-center justify-center rounded-full border border-brand-orange bg-white text-brand-orange shadow-sm">
+            <span className="mt-3 inline-flex h-9 w-9 items-center justify-center rounded-full border border-brand-icon bg-white text-brand-icon shadow-sm">
               <Shield className="h-4 w-4" strokeWidth={1.8} />
             </span>
-            <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-brand-orange bg-white text-brand-orange shadow-sm">
+            <span className="inline-flex h-9 w-9 items-center justify-center rounded-full border border-brand-icon bg-white text-brand-icon shadow-sm">
               <CreditCard className="h-4 w-4" strokeWidth={1.8} />
             </span>
           </div>

@@ -14,7 +14,7 @@ export function ConnectedSection() {
           </p>
           <span
             aria-hidden
-            className="mt-2.5 block h-px w-10 bg-brand-orange"
+            className="mt-2.5 block h-px w-10 bg-brand-icon"
           />
           <p className="mt-5 max-w-[32rem] text-[14px] leading-relaxed text-brand-gray-text sm:text-[16px]">
             {seatsGroup.connectedText}

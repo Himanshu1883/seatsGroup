@@ -6,6 +6,8 @@
   --color-brand-orange-light: #e3f2fd;
   --color-brand-orange-muted: #90caf9;
   --color-brand-orange-soft: #e3f2fd;
+  --color-brand-icon: #ff8c42;
+  --color-brand-icon-hover: #e67a2e;
   --color-brand-dark: #0d47a1;
   --color-brand-gray-text: #0d47a1;
 
@@ -404,7 +406,7 @@ body {
 }
 
 .sg-orbit-node {
-  filter: drop-shadow(0 0 6px rgba(33, 150, 243, 0.85));
+  filter: drop-shadow(0 0 6px rgba(255, 140, 66, 0.85));
   animation: sg-node-pulse 2.8s ease-in-out infinite;
 }
 

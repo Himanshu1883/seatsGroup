@@ -48,14 +48,14 @@ export function EcosystemCards() {
                 className={`sg-eco-card sg-eco-slide-card${duplicate ? " sg-eco-slide-dup" : ""}`}
                 aria-hidden={duplicate}
               >
-                <Icon className="h-4 w-4 shrink-0 text-brand-orange" strokeWidth={1.8} />
+                <Icon className="h-4 w-4 shrink-0 text-brand-icon" strokeWidth={1.8} />
                 <h2 className="heading min-w-0 truncate text-[13px] leading-none text-white">
                   Seats
                   <span className="text-brand-orange">{product.name}</span>
                 </h2>
                 <ArrowRight
                   aria-hidden
-                  className="ml-auto h-3.5 w-3.5 shrink-0 text-brand-orange"
+                  className="ml-auto h-3.5 w-3.5 shrink-0 text-brand-icon"
                   strokeWidth={2.4}
                 />
               </article>
@@ -73,7 +73,7 @@ export function EcosystemCards() {
               className="sg-eco-card flex min-h-0 flex-col rounded-2xl p-3 sm:p-3.5"
             >
               <Icon
-                className="h-4 w-4 text-brand-orange sm:h-[18px] sm:w-[18px]"
+                className="h-4 w-4 text-brand-icon sm:h-[18px] sm:w-[18px]"
                 strokeWidth={1.7}
               />
               <h2 className="heading mt-2 text-[13px] leading-none text-white sm:mt-2.5 sm:text-[15px]">
@@ -85,7 +85,7 @@ export function EcosystemCards() {
               </p>
               <ArrowRight
                 aria-hidden
-                className="mt-3 h-3.5 w-3.5 text-brand-orange sm:h-4 sm:w-4"
+                className="mt-3 h-3.5 w-3.5 text-brand-icon sm:h-4 sm:w-4"
                 strokeWidth={2.4}
               />
             </article>

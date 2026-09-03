@@ -49,7 +49,7 @@ export function SeatsGroupLanding() {
                 </h1>
                 <span
                   aria-hidden
-                  className="sg-hero-divider mt-2 block h-px w-12 bg-brand-orange sm:mt-2.5 sm:w-14"
+                  className="sg-hero-divider mt-2 block h-px w-12 bg-brand-icon sm:mt-2.5 sm:w-14"
                 />
               </div>
               <div className="sg-hero-intro max-w-[32rem] text-[12px] leading-relaxed text-[#e3f2fd] sm:text-[13.5px] lg:text-[14.5px] xl:text-[15px]">
@@ -82,17 +82,17 @@ export function SeatsGroupLanding() {
                         key={chip.label}
                         className={`flex min-w-0 flex-col items-center px-1 text-center lg:flex-1 lg:px-1.5 xl:px-2 ${
                           index > 0
-                            ? "lg:border-l lg:border-brand-orange/50"
+                            ? "lg:border-l lg:border-brand-icon/50"
                             : ""
                         }`}
                       >
                         {chip.icon === "handshake" ? (
-                          <span className="inline-flex h-4 w-4 items-center justify-center rounded-full border border-brand-orange text-brand-orange sm:h-5 sm:w-5">
+                          <span className="inline-flex h-4 w-4 items-center justify-center rounded-full border border-brand-icon text-brand-icon sm:h-5 sm:w-5">
                             <Icon className="h-2.5 w-2.5 sm:h-3 sm:w-3" strokeWidth={2} />
                           </span>
                         ) : (
                           <Icon
-                            className="h-3.5 w-4 text-brand-orange sm:h-[18px] sm:w-[18px]"
+                            className="h-3.5 w-4 text-brand-icon sm:h-[18px] sm:w-[18px]"
                             strokeWidth={1.7}
                           />
                         )}
