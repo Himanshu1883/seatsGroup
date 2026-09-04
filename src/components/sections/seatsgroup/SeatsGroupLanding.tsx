@@ -27,8 +27,11 @@ export function SeatsGroupLanding() {
               <div className="sg-hero-headline-block">
                 <h1 className="heading text-[1.9rem] leading-[1.04] tracking-[-0.045em] text-white sm:text-[3.15rem] lg:text-[3.85rem] lg:leading-[1.03] xl:text-[4.25rem]">
                   <span className="block">{seatsGroup.headlineLead}</span>
-                  <span className="sg-hero-accent sg-text-shine sg-hero-accent-shine mt-1 block">
-                    {seatsGroup.headlineAccent}
+                  <span className="sg-hero-accent sg-hero-accent-shine mt-1 block">
+                    <span className="sg-hero-accent-base">{seatsGroup.headlineAccent}</span>
+                    <span className="sg-hero-accent-blade" aria-hidden>
+                      {seatsGroup.headlineAccent}
+                    </span>
                   </span>
                 </h1>
               </div>
