@@ -1,108 +1,77 @@
-import type { LucideIcon } from "lucide-react";
-import {
-  BarChart3,
-  Boxes,
-  ConciergeBell,
-  CreditCard,
-  Database,
-  Handshake,
-  Puzzle,
-  Store,
-  Tag,
-} from "lucide-react";
+import { BarChart3, Boxes, Globe } from "lucide-react";
 import { ConnectedSection } from "@/components/sections/seatsgroup/ConnectedSection";
 import { EcosystemCards } from "@/components/sections/seatsgroup/EcosystemCards";
+import { MoreThanTicketing } from "@/components/sections/seatsgroup/MoreThanTicketing";
 import { NextSection } from "@/components/sections/seatsgroup/NextSection";
 import { SeatsGroupFooter } from "@/components/sections/seatsgroup/SeatsGroupFooter";
-import { SeatsGroupGlobe } from "@/components/sections/seatsgroup/SeatsGroupGlobe";
+import { HeroBackground } from "@/components/sections/seatsgroup/HeroBackground";
 import { SeatsGroupLogo } from "@/components/sections/seatsgroup/SeatsGroupLogo";
 import { seatsGroup } from "@/lib/constants/seatsgroup";
 
-const chipIcons: Record<(typeof seatsGroup.chips)[number]["icon"], LucideIcon> = {
-  ticket: Tag,
-  handshake: Handshake,
+const heroFeatureIcons = {
+  globe: Globe,
   boxes: Boxes,
-  hospitality: ConciergeBell,
-  card: CreditCard,
-  store: Store,
-  database: Database,
-  puzzle: Puzzle,
   chart: BarChart3,
-};
+} as const;
 
 export function SeatsGroupLanding() {
   return (
-    <div className="sg-page overflow-x-hidden bg-[#e3f2fd] text-brand-dark">
+    <div className="sg-page overflow-x-hidden bg-[#e8f5e9] text-brand-dark">
       <main>
-        <section className="sg-hero relative isolate bg-[#0c0c0e] text-[#e3f2fd]">
-          <SeatsGroupGlobe className="sg-hero-globe pointer-events-none absolute right-0 top-0 h-[min(44vh,19rem)] w-[90%] sm:h-[26rem] sm:w-[68%] lg:h-[30rem] lg:w-[min(62%,48rem)]" />
+        <section className="sg-hero relative isolate bg-[#0c0c0e] text-[#e8f5e9]">
+          <HeroBackground />
 
           <div className="sg-hero-inner relative z-10 mx-auto w-full max-w-[88rem] px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-[max(1.35rem,env(safe-area-inset-top))] sm:px-8 sm:pb-6 sm:pt-5 lg:px-12 lg:pb-7 lg:pt-6">
-            <div className="sg-hero-copy max-w-xl">
+            <div className="sg-hero-copy">
               <SeatsGroupLogo />
               <div className="sg-hero-headline-block">
-                <h1 className="heading text-[1.55rem] leading-[1.06] tracking-[-0.04em] text-white sm:text-[2.55rem] lg:text-[3.15rem] lg:leading-[1.05] xl:text-[3.3rem]">
-                  {seatsGroup.headlineLead}
-                  <span className="mt-0.5 block text-brand-orange">
+                <h1 className="heading text-[1.9rem] leading-[1.04] tracking-[-0.045em] text-white sm:text-[3.15rem] lg:text-[3.85rem] lg:leading-[1.03] xl:text-[4.25rem]">
+                  <span className="block">{seatsGroup.headlineLead}</span>
+                  <span className="sg-hero-accent sg-text-shine sg-hero-accent-shine mt-1 block">
                     {seatsGroup.headlineAccent}
                   </span>
                 </h1>
-                <span
-                  aria-hidden
-                  className="sg-hero-divider mt-2 block h-px w-12 bg-brand-icon sm:mt-2.5 sm:w-14"
-                />
               </div>
-              <div className="sg-hero-intro max-w-[32rem] text-[12px] leading-relaxed text-[#e3f2fd] sm:text-[13.5px] lg:text-[14.5px] xl:text-[15px]">
-                {seatsGroup.intro.map((paragraph) => (
-                  <p key={paragraph}>{paragraph}</p>
-                ))}
+              <div className="sg-hero-intro mx-auto max-w-[46rem]">
+                <p className="sg-hero-intro-lead">
+                  <span className="sg-hero-brand">{seatsGroup.name}</span>
+                  {seatsGroup.intro[0].replace(seatsGroup.name, "")}
+                </p>
+                <p className="sg-hero-intro-sub hidden sm:block">
+                  {seatsGroup.intro[1]}
+                </p>
+              </div>
+              <div className="sg-hero-highlights hidden md:flex">
+                {seatsGroup.connectedFeatures.map((feature) => {
+                  const Icon = heroFeatureIcons[feature.icon];
+                  return (
+                    <div key={feature.label} className="sg-hero-highlight">
+                      <span className="sg-hero-highlight-icon">
+                        <Icon className="h-4 w-4 sm:h-[1.05rem] sm:w-[1.05rem]" strokeWidth={1.8} />
+                      </span>
+                      <span className="sg-hero-highlight-label">{feature.label}</span>
+                    </div>
+                  );
+                })}
               </div>
             </div>
 
             <div className="sg-eco-follow">
-              <div className="shrink-0">
-                <div className="mb-3 flex justify-center sm:mb-3.5">
+              <div className="sg-eco-block">
+                <div className="hidden justify-center sm:flex">
                   <p className="sg-hero-pill">{seatsGroup.ecosystemEyebrow}</p>
                 </div>
                 <EcosystemCards />
               </div>
 
-              <div className="sg-more-panel shrink-0 rounded-[1.15rem] px-3 py-3 sm:rounded-[1.35rem] sm:px-6 sm:py-4">
+              <div className="sg-more-panel">
                 <div className="flex justify-center">
                   <p className="sg-hero-pill">{seatsGroup.moreEyebrow}</p>
                 </div>
-                <p className="sg-more-copy mx-auto mt-2 max-w-3xl text-center text-[11px] leading-snug text-white sm:mt-2.5 sm:text-[13.5px]">
+                <p className="sg-more-copy hidden mx-auto max-w-3xl text-center text-[11px] leading-snug text-white lg:block lg:text-[13.5px]">
                   {seatsGroup.moreText}
                 </p>
-                <ul className="mt-3 grid grid-cols-3 gap-y-3 sm:mt-4 sm:gap-y-3.5 lg:flex lg:items-stretch">
-                  {seatsGroup.chips.map((chip, index) => {
-                    const Icon = chipIcons[chip.icon];
-                    return (
-                      <li
-                        key={chip.label}
-                        className={`flex min-w-0 flex-col items-center px-1 text-center lg:flex-1 lg:px-1.5 xl:px-2 ${
-                          index > 0
-                            ? "lg:border-l lg:border-brand-icon/50"
-                            : ""
-                        }`}
-                      >
-                        {chip.icon === "handshake" ? (
-                          <span className="inline-flex h-4 w-4 items-center justify-center rounded-full border border-brand-icon text-brand-icon sm:h-5 sm:w-5">
-                            <Icon className="h-2.5 w-2.5 sm:h-3 sm:w-3" strokeWidth={2} />
-                          </span>
-                        ) : (
-                          <Icon
-                            className="h-3.5 w-4 text-brand-icon sm:h-[18px] sm:w-[18px]"
-                            strokeWidth={1.7}
-                          />
-                        )}
-                        <span className="mt-1 max-w-[7.6rem] text-[8.5px] font-medium leading-tight text-white sm:mt-1.5 sm:text-[10.5px] lg:text-[11px] xl:text-[11.5px]">
-                          {chip.label}
-                        </span>
-                      </li>
-                    );
-                  })}
-                </ul>
+                <MoreThanTicketing />
               </div>
             </div>
           </div>

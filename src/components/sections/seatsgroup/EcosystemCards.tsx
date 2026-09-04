@@ -1,10 +1,12 @@
 "use client";
 
-import { useState } from "react";
+import { useCallback, useEffect, useRef, useState, type PointerEvent } from "react";
 import type { LucideIcon } from "lucide-react";
 import {
   ArrowRight,
   BriefcaseBusiness,
+  ChevronLeft,
+  ChevronRight,
   CreditCard,
   Network,
   Search,
@@ -22,76 +24,175 @@ const productIcons: Record<(typeof seatsGroup.products)[number]["icon"], LucideI
   card: CreditCard,
 };
 
+const products = seatsGroup.products;
+const COUNT = products.length;
+const AUTO_MS = 2800;
+
+function wrapOffset(index: number, active: number) {
+  let offset = index - active;
+  if (offset > COUNT / 2) offset -= COUNT;
+  if (offset < -COUNT / 2) offset += COUNT;
+  return offset;
+}
+
 export function EcosystemCards() {
+  const [active, setActive] = useState(0);
   const [paused, setPaused] = useState(false);
-  const loop = [...seatsGroup.products, ...seatsGroup.products];
+  const [isMobile, setIsMobile] = useState(false);
+  const drag = useRef({ startX: 0, dragging: false, moved: false });
+
+  const goTo = useCallback((index: number) => {
+    setActive(((index % COUNT) + COUNT) % COUNT);
+  }, []);
+
+  const next = useCallback(() => goTo(active + 1), [active, goTo]);
+  const prev = useCallback(() => goTo(active - 1), [active, goTo]);
+
+  useEffect(() => {
+    const media = window.matchMedia("(max-width: 767px)");
+    const update = () => setIsMobile(media.matches);
+    update();
+    media.addEventListener("change", update);
+    return () => media.removeEventListener("change", update);
+  }, []);
+
+  useEffect(() => {
+    const reduceMotion = window.matchMedia(
+      "(prefers-reduced-motion: reduce)"
+    ).matches;
+    if (reduceMotion || paused) return;
+
+    const timer = window.setInterval(next, AUTO_MS);
+    return () => window.clearInterval(timer);
+  }, [next, paused]);
+
+  function onPointerDown(event: PointerEvent<HTMLDivElement>) {
+    drag.current = {
+      startX: event.clientX,
+      dragging: true,
+      moved: false,
+    };
+    event.currentTarget.setPointerCapture(event.pointerId);
+    setPaused(true);
+  }
+
+  function onPointerMove(event: PointerEvent<HTMLDivElement>) {
+    if (!drag.current.dragging) return;
+    if (Math.abs(event.clientX - drag.current.startX) > 8) {
+      drag.current.moved = true;
+    }
+  }
+
+  function onPointerUp(event: PointerEvent<HTMLDivElement>) {
+    if (!drag.current.dragging) return;
+    const delta = event.clientX - drag.current.startX;
+    drag.current.dragging = false;
+    if (Math.abs(delta) > 48) {
+      if (delta < 0) next();
+      else prev();
+    }
+    window.setTimeout(() => {
+      drag.current.moved = false;
+      setPaused(false);
+    }, 80);
+  }
 
   return (
-    <>
-      <div
-        className="sg-eco-marquee mt-3 md:hidden"
-        onPointerDown={() => setPaused(true)}
-        onPointerUp={() => setPaused(false)}
-        onPointerCancel={() => setPaused(false)}
-        onPointerLeave={() => setPaused(false)}
+    <div
+      className="sg-eco-carousel"
+      onMouseEnter={() => setPaused(true)}
+      onMouseLeave={() => setPaused(false)}
+    >
+      <button
+        type="button"
+        className="sg-eco-nav sg-eco-nav-prev"
+        aria-label="Previous product"
+        onClick={prev}
       >
-        <div
-          className={`sg-eco-marquee-track ${paused ? "is-paused" : ""}`}
-        >
-          {loop.map((product, index) => {
-            const Icon = productIcons[product.icon];
-            const duplicate = index >= seatsGroup.products.length;
+        <ChevronLeft className="h-4 w-4" strokeWidth={2.2} />
+      </button>
 
-            return (
-              <article
-                key={`${product.name}-${index}`}
-                className={`sg-eco-card sg-eco-slide-card${duplicate ? " sg-eco-slide-dup" : ""}`}
-                aria-hidden={duplicate}
-              >
-                <Icon className="h-4 w-4 shrink-0 text-brand-icon" strokeWidth={1.8} />
-                <h2 className="heading min-w-0 truncate text-[13px] leading-none text-white">
-                  Seats
-                  <span className="text-brand-orange">{product.name}</span>
-                </h2>
-                <ArrowRight
-                  aria-hidden
-                  className="ml-auto h-3.5 w-3.5 shrink-0 text-brand-icon"
-                  strokeWidth={2.4}
-                />
-              </article>
-            );
-          })}
-        </div>
-      </div>
-
-      <div className="mt-3 hidden grid-cols-2 gap-2.5 sm:mt-4 md:grid sm:grid-cols-3 lg:grid-cols-6 lg:gap-2.5 xl:gap-3">
-        {seatsGroup.products.map((product) => {
+      <div
+        className="sg-eco-stage"
+        onPointerDown={onPointerDown}
+        onPointerMove={onPointerMove}
+        onPointerUp={onPointerUp}
+        onPointerCancel={onPointerUp}
+      >
+        {products.map((product, index) => {
           const Icon = productIcons[product.icon];
+          const offset = wrapOffset(index, active);
+          const isActive = offset === 0;
+          const hidden = Math.abs(offset) > (isMobile ? 1 : 2);
+
           return (
             <article
               key={product.name}
-              className="sg-eco-card flex min-h-0 flex-col rounded-2xl p-3 sm:p-3.5"
+              className={`sg-eco-card sg-eco-focus${isActive ? " is-active" : ""}${hidden ? " is-hidden" : ""}`}
+              style={
+                {
+                  "--eco-offset": String(offset),
+                  zIndex: isActive ? 12 : 8 - Math.abs(offset),
+                } as React.CSSProperties
+              }
+              aria-hidden={!isActive}
+              onClick={() => {
+                if (!drag.current.moved && !isActive) goTo(index);
+              }}
             >
               <Icon
-                className="h-4 w-4 text-brand-icon sm:h-[18px] sm:w-[18px]"
+                className="sg-eco-focus-icon"
                 strokeWidth={1.7}
               />
-              <h2 className="heading mt-2 text-[13px] leading-none text-white sm:mt-2.5 sm:text-[15px]">
+              <h2 className="heading sg-eco-focus-title">
                 Seats
-                <span className="text-brand-orange">{product.name}</span>
+                <span
+                  className={
+                    isActive ? "sg-text-shine" : "text-brand-orange"
+                  }
+                  key={isActive ? `name-${index}-${active}` : undefined}
+                >
+                  {product.name}
+                </span>
               </h2>
-              <p className="mt-2 flex-1 text-[10.5px] leading-snug text-[#e3f2fd] sm:text-[11.5px]">
+              <p
+                className={`sg-eco-focus-copy${isActive ? " sg-text-shine sg-text-shine-light" : ""}`}
+                key={isActive ? `copy-${index}-${active}` : undefined}
+              >
                 {product.text}
               </p>
               <ArrowRight
                 aria-hidden
-                className="mt-3 h-3.5 w-3.5 text-brand-icon sm:h-4 sm:w-4"
+                className="sg-eco-focus-arrow"
                 strokeWidth={2.4}
               />
             </article>
           );
         })}
       </div>
-    </>
+
+      <button
+        type="button"
+        className="sg-eco-nav sg-eco-nav-next"
+        aria-label="Next product"
+        onClick={next}
+      >
+        <ChevronRight className="h-4 w-4" strokeWidth={2.2} />
+      </button>
+
+      <div className="sg-eco-dots" role="tablist" aria-label="Ecosystem products">
+        {products.map((product, index) => (
+          <button
+            key={product.name}
+            type="button"
+            role="tab"
+            aria-selected={index === active}
+            aria-label={`Seats${product.name}`}
+            className={`sg-eco-dot${index === active ? " is-active" : ""}`}
+            onClick={() => goTo(index)}
+          />
+        ))}
+      </div>
+    </div>
   );
 }

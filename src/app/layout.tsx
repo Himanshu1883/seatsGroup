@@ -29,10 +29,10 @@ export const metadata: Metadata = {
     "SeatsGroup is a global technology and distribution group building connected infrastructure for the ticketing, hospitality and live-events industry.",
   icons: {
     icon: [
-      { url: "/favicon-blue.png", sizes: "32x32", type: "image/png" },
-      { url: "/favicon-blue.png", type: "image/png" },
+      { url: "/favicon-green.png", sizes: "32x32", type: "image/png" },
+      { url: "/favicon-green.png", type: "image/png" },
     ],
-    apple: "/favicon-blue.png",
+    apple: "/favicon-green.png",
   },
 };
 

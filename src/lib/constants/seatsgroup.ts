@@ -57,6 +57,12 @@ export const seatsGroup = {
   connectedEyebrow: "One Connected Ecosystem",
   connectedText:
     "From supply and distribution to marketplaces, payments and hospitality, SeatsGroup is building technology that makes the global live-events industry more connected.",
+  connectedFeatures: [
+    { label: "Global Connectivity", icon: "globe" },
+    { label: "Integrated Solutions", icon: "boxes" },
+    { label: "Built for Growth", icon: "chart" },
+  ],
+  connectedLabels: ["Partners", "Suppliers", "Distribution", "Buyers"],
   nextTitle: "Building What's Next.",
   nextText:
     "Our new SeatsGroup digital experience is currently under development.",

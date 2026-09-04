@@ -21,7 +21,7 @@ export function SeatsGroupLogo({
       )}
     >
       <Image
-        src="/favicon-blue.png"
+        src="/favicon-green.png"
         alt=""
         width={48}
         height={48}

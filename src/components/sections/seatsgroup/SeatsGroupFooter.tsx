@@ -6,7 +6,7 @@ export function SeatsGroupFooter() {
   const { footer } = seatsGroup;
 
   return (
-    <footer className="sg-footer relative bg-[#0c0c0e] text-[#e3f2fd]">
+    <footer className="sg-footer relative bg-[#0c0c0e] text-[#e8f5e9]">
       <div className="relative mx-auto max-w-[88rem] px-5 py-12 sm:px-8 sm:py-14 lg:px-12 lg:py-16">
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.15fr_0.7fr_0.7fr_1fr] lg:gap-8">
           <div>
