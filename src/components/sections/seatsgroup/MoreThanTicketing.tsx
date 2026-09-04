@@ -28,6 +28,8 @@ const chipIcons: Record<(typeof seatsGroup.chips)[number]["icon"], LucideIcon> =
   chart: BarChart3,
 };
 
+type Chip = (typeof seatsGroup.chips)[number];
+
 const leftChips = seatsGroup.chips.slice(0, 5);
 const rightChips = seatsGroup.chips.slice(4);
 
@@ -35,7 +37,7 @@ function MarqueeItems({
   chips,
   duplicate,
 }: {
-  chips: typeof seatsGroup.chips;
+  chips: readonly Chip[];
   duplicate?: boolean;
 }) {
   return chips.map((chip, index) => {
