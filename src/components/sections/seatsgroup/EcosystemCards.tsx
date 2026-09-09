@@ -155,10 +155,7 @@ export function EcosystemCards() {
                   {product.name}
                 </span>
               </h2>
-              <p
-                className={`sg-eco-focus-copy${isActive ? " sg-text-shine sg-text-shine-light" : ""}`}
-                key={isActive ? `copy-${index}-${active}` : undefined}
-              >
+              <p className="sg-eco-focus-copy">
                 {product.text}
               </p>
               <ArrowRight

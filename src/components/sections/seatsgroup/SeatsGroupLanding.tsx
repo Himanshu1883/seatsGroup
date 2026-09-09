@@ -16,7 +16,7 @@ const heroFeatureIcons = {
 
 export function SeatsGroupLanding() {
   return (
-    <div className="sg-page overflow-x-hidden bg-[#e8f5e9] text-brand-dark">
+    <div className="sg-page overflow-x-hidden bg-white text-brand-dark">
       <main>
         <section className="sg-hero relative isolate bg-[#0c0c0e] text-[#e8f5e9]">
           <HeroBackground />

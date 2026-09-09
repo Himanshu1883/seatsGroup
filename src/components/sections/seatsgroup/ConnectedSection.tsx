@@ -24,8 +24,14 @@ const labelPositions = [
 
 export function ConnectedSection() {
   return (
-    <section className="sg-connected relative bg-white px-5 py-14 sm:px-8 sm:py-16 lg:px-12 lg:py-20">
-      <div className="sg-connected-inner relative mx-auto grid max-w-[88rem] items-center gap-10 lg:grid-cols-[0.94fr_1.06fr] lg:gap-8">
+    <section className="sg-connected relative overflow-hidden px-5 py-14 sm:px-8 sm:py-16 lg:px-12 lg:py-20">
+      <div className="sg-connected-pattern" aria-hidden>
+        <span className="sg-connected-pattern-grid" />
+        <span className="sg-connected-pattern-dots" />
+        <span className="sg-connected-pattern-mesh" />
+        <span className="sg-connected-pattern-spotlight" />
+      </div>
+      <div className="sg-connected-inner relative z-10 mx-auto grid max-w-[88rem] items-center gap-10 lg:grid-cols-[0.94fr_1.06fr] lg:gap-8">
         <div className="sg-connected-copy max-w-[34rem]">
           <Reveal variant="line" className="block h-px w-10 bg-brand-icon" aria-hidden>
             <span className="sr-only">Section divider</span>
@@ -36,15 +42,17 @@ export function ConnectedSection() {
             </p>
           </Reveal>
           <Reveal variant="up" delay={160}>
-            <p className="mt-5 text-[14px] leading-relaxed text-brand-gray-text sm:text-[16px]">
+            <p className="mt-5 text-[14px] leading-relaxed text-neutral-900 sm:text-[16px]">
               {seatsGroup.connectedText}
             </p>
           </Reveal>
           <Reveal variant="left" delay={240}>
-            <h2 className="heading mt-7 text-[1.85rem] leading-[1.12] tracking-[-0.03em] text-brand-dark sm:mt-8 sm:text-[2.45rem] lg:text-[2.85rem]">
-              Built for the <span className="sg-text-shine sg-text-shine-stagger-first">Industry.</span>
+            <h2 className="heading mt-7 text-[1.85rem] leading-[1.12] tracking-[-0.03em] text-neutral-900 sm:mt-8 sm:text-[2.45rem] lg:text-[2.85rem]">
+              <span className="text-brand-plum">Built for the</span>{" "}
+              <span className="sg-text-shine sg-text-shine-stagger-first">Industry.</span>
               <br />
-              Connected <span className="sg-text-shine sg-text-shine-stagger-second">Globally.</span>
+              <span className="text-brand-plum">Connected</span>{" "}
+              <span className="sg-text-shine sg-text-shine-stagger-second">Globally.</span>
             </h2>
           </Reveal>
 
@@ -126,7 +134,7 @@ export function ConnectedSection() {
 
           <Reveal variant="right" delay={180}>
             <Image
-              src="/images/seatsgroup-devices-mockup.jpg"
+              src="/images/seatsgroup-devices-mockup.png"
               alt="SeatsGroup platform across laptop, tablet and mobile"
               width={1024}
               height={682}

@@ -21,12 +21,23 @@ const floatingIcons = [
 
 export function NextSection() {
   return (
-    <section className="sg-next relative bg-[#e8f5e9] px-5 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-20">
-      <div className="mx-auto grid max-w-[88rem] items-center gap-8 lg:grid-cols-[0.88fr_1.12fr] lg:gap-4">
+    <section className="sg-next relative overflow-hidden bg-white px-5 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-20">
+      <div className="sg-section-bg" aria-hidden>
+        <Image
+          src="/images/section-next-bg.jpg"
+          alt=""
+          fill
+          sizes="100vw"
+          className="sg-section-bg-image sg-section-bg-image-next"
+        />
+        <div className="sg-section-bg-wash" />
+      </div>
+
+      <div className="relative z-10 mx-auto grid max-w-[88rem] items-center gap-8 lg:grid-cols-[0.88fr_1.12fr] lg:gap-4">
         <div className="relative z-10 max-w-xl">
           <Reveal variant="left">
-            <h2 className="heading text-[2rem] leading-[1.12] tracking-[-0.03em] text-brand-dark sm:text-[2.75rem] lg:text-[3.15rem]">
-              Building What&apos;s{" "}
+            <h2 className="heading text-[2rem] leading-[1.12] tracking-[-0.03em] text-neutral-900 sm:text-[2.75rem] lg:text-[3.15rem]">
+              <span className="text-brand-plum">Building What&apos;s</span>{" "}
               <span className="sg-text-shine">Next.</span>
             </h2>
           </Reveal>
@@ -34,7 +45,7 @@ export function NextSection() {
             <span className="sr-only">Section divider</span>
           </Reveal>
           <Reveal variant="up" delay={170}>
-            <p className="mt-4 max-w-md text-[14px] leading-relaxed text-brand-gray-text sm:text-[15.5px]">
+            <p className="mt-4 max-w-md text-[14px] leading-relaxed text-neutral-900 sm:text-[15.5px]">
               {seatsGroup.nextText}
             </p>
           </Reveal>
@@ -44,14 +55,14 @@ export function NextSection() {
               href={`mailto:${seatsGroup.email}`}
               className="sg-next-card mt-7 flex items-center gap-3.5 rounded-2xl bg-white px-4 py-4 sm:px-5"
             >
-              <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-icon text-white">
+              <span className="inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-full bg-brand-plum text-white">
                 <Mail className="h-5 w-5" strokeWidth={1.8} />
               </span>
               <span className="min-w-0">
-                <span className="block text-[12.5px] leading-snug text-brand-gray-text sm:text-[13.5px]">
+                <span className="block text-[12.5px] leading-snug text-neutral-900 sm:text-[13.5px]">
                   {seatsGroup.enquiryLabel}
                 </span>
-                <span className="mt-1 inline-flex items-center gap-1.5 text-[14px] font-semibold text-brand-icon sm:text-[15px]">
+                <span className="mt-1 inline-flex items-center gap-1.5 text-[14px] font-semibold text-neutral-900 sm:text-[15px]">
                   {seatsGroup.email}
                   <ArrowRight className="h-4 w-4" strokeWidth={2.2} />
                 </span>
@@ -60,8 +71,8 @@ export function NextSection() {
           </Reveal>
 
           <Reveal variant="fade" delay={360}>
-            <p className="mt-8 inline-flex items-center gap-2 font-tech text-[11px] tracking-wide text-[#1b5e20]">
-              <Shield className="h-3.5 w-3.5 text-brand-icon" strokeWidth={1.8} />
+            <p className="mt-8 inline-flex items-center gap-2 font-tech text-[11px] tracking-wide text-neutral-900">
+              <Shield className="h-3.5 w-3.5 text-brand-plum" strokeWidth={1.8} />
               {seatsGroup.copyright}
             </p>
           </Reveal>
@@ -83,7 +94,7 @@ export function NextSection() {
             {floatingIcons.map(({ icon: Icon, delay, className }) => (
               <Reveal key={delay} variant="scale" delay={delay}>
                 <span
-                  className={`inline-flex h-9 w-9 items-center justify-center rounded-full border border-brand-icon bg-white text-brand-icon shadow-sm ${className}`}
+                  className={`inline-flex h-9 w-9 items-center justify-center rounded-full border border-brand-plum bg-white text-brand-plum shadow-sm ${className}`}
                 >
                   <Icon className="h-4 w-4" strokeWidth={1.8} />
                 </span>
