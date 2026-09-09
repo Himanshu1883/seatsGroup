@@ -37,7 +37,7 @@ export function NextSection() {
         <div className="relative z-10 max-w-xl">
           <Reveal variant="left">
             <h2 className="heading text-[2rem] leading-[1.12] tracking-[-0.03em] text-neutral-900 sm:text-[2.75rem] lg:text-[3.15rem]">
-              <span className="text-brand-plum">Building What&apos;s</span>{" "}
+              <span className="text-neutral-900">Building What&apos;s</span>{" "}
               <span className="sg-text-shine">Next.</span>
             </h2>
           </Reveal>

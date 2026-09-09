@@ -48,10 +48,10 @@ export function ConnectedSection() {
           </Reveal>
           <Reveal variant="left" delay={240}>
             <h2 className="heading mt-7 text-[1.85rem] leading-[1.12] tracking-[-0.03em] text-neutral-900 sm:mt-8 sm:text-[2.45rem] lg:text-[2.85rem]">
-              <span className="text-brand-plum">Built for the</span>{" "}
+              <span className="text-neutral-900">Built for the</span>{" "}
               <span className="sg-text-shine sg-text-shine-stagger-first">Industry.</span>
               <br />
-              <span className="text-brand-plum">Connected</span>{" "}
+              <span className="text-neutral-900">Connected</span>{" "}
               <span className="sg-text-shine sg-text-shine-stagger-second">Globally.</span>
             </h2>
           </Reveal>

@@ -776,7 +776,7 @@ body {
   object-position: center 42%;
   opacity: 0;
   z-index: 0;
-  filter: brightness(0.64) saturate(0.8);
+  filter: brightness(0.82) saturate(0.85);
   transform: scale(1.04);
   transition:
     opacity 1.15s ease,
@@ -792,7 +792,7 @@ body {
   position: absolute;
   inset: 0;
   z-index: 1;
-  background: rgba(0, 0, 0, 0.26);
+  background: rgba(0, 0, 0, 0.16);
 }
 
 .sg-hero-vignette {
@@ -1027,7 +1027,7 @@ body {
   font-size: 13.5px;
   font-weight: 600;
   line-height: 1.6;
-  color: rgba(255, 255, 255, 0.92);
+  color: #ffffff;
 }
 
 .sg-hero-brand {
@@ -1039,7 +1039,7 @@ body {
   font-size: 12.5px;
   font-weight: 500;
   line-height: 1.65;
-  color: rgba(232, 245, 233, 0.78);
+  color: #ffffff;
 }
 
 .sg-hero-highlights {
