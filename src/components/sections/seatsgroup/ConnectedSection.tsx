@@ -88,36 +88,36 @@ export function ConnectedSection() {
             >
               <path
                 d="M88 72 C 150 92, 210 118, 286 148"
-                stroke="rgba(102,187,106,0.42)"
+                stroke="rgba(199, 1, 1, 0.42)"
                 strokeWidth="1.1"
                 strokeDasharray="2.5 5"
               />
               <path
                 d="M84 206 C 150 188, 220 176, 300 168"
-                stroke="rgba(102,187,106,0.42)"
+                stroke="rgba(199, 1, 1, 0.42)"
                 strokeWidth="1.1"
                 strokeDasharray="2.5 5"
               />
               <path
                 d="M556 84 C 490 108, 420 132, 350 154"
-                stroke="rgba(102,187,106,0.42)"
+                stroke="rgba(199, 1, 1, 0.42)"
                 strokeWidth="1.1"
                 strokeDasharray="2.5 5"
               />
               <path
                 d="M552 220 C 488 202, 420 188, 352 176"
-                stroke="rgba(102,187,106,0.42)"
+                stroke="rgba(199, 1, 1, 0.42)"
                 strokeWidth="1.1"
                 strokeDasharray="2.5 5"
               />
-              <circle cx="88" cy="72" r="3" fill="#66bb6a" />
-              <circle cx="84" cy="206" r="3" fill="#66bb6a" />
-              <circle cx="556" cy="84" r="3" fill="#66bb6a" />
-              <circle cx="552" cy="220" r="3" fill="#66bb6a" />
-              <circle cx="286" cy="148" r="3" fill="#66bb6a" />
-              <circle cx="300" cy="168" r="3" fill="#66bb6a" />
-              <circle cx="350" cy="154" r="3" fill="#66bb6a" />
-              <circle cx="352" cy="176" r="3" fill="#66bb6a" />
+              <circle cx="88" cy="72" r="3" fill="#c70101" />
+              <circle cx="84" cy="206" r="3" fill="#c70101" />
+              <circle cx="556" cy="84" r="3" fill="#c70101" />
+              <circle cx="552" cy="220" r="3" fill="#c70101" />
+              <circle cx="286" cy="148" r="3" fill="#c70101" />
+              <circle cx="300" cy="168" r="3" fill="#c70101" />
+              <circle cx="350" cy="154" r="3" fill="#c70101" />
+              <circle cx="352" cy="176" r="3" fill="#c70101" />
             </svg>
           </Reveal>
 

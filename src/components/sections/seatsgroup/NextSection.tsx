@@ -83,7 +83,7 @@ export function NextSection() {
             <svg viewBox="0 0 560 70" fill="none" aria-hidden className="h-full w-full">
               <path
                 d="M28 48 C 130 10, 220 8, 300 38 C 380 68, 470 12, 532 24"
-                stroke="rgba(102,187,106,0.5)"
+                stroke="rgba(199, 1, 1, 0.5)"
                 strokeWidth="1.25"
                 strokeDasharray="3 6"
               />
@@ -104,7 +104,7 @@ export function NextSection() {
 
           <Reveal variant="right" delay={180}>
             <Image
-              src="/images/seatsgroup-next-devices.jpg"
+              src="/images/seatsgroup-next-devices.png"
               alt="SeatsGroup dashboard on laptop and mobile"
               width={1024}
               height={682}

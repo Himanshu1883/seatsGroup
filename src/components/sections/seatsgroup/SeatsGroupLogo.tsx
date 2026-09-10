@@ -3,40 +3,28 @@ import { cn } from "@/lib/utils";
 
 export function SeatsGroupLogo({
   className,
-  variant = "light",
   centered = false,
 }: {
   className?: string;
   variant?: "light" | "dark";
   centered?: boolean;
 }) {
-  const dark = variant === "dark";
-
   return (
     <div
       className={cn(
-        "flex items-center gap-1",
+        "flex items-center",
         centered && "mx-auto w-fit justify-center",
         className
       )}
     >
       <Image
-        src="/favicon-green.png"
-        alt=""
-        width={48}
-        height={48}
-        className="h-10 w-10 shrink-0 object-contain sm:h-11 sm:w-11"
+        src="/images/seatsgroup-logo.png"
+        alt="SeatsGroup"
+        width={884}
+        height={173}
+        className="h-7 w-auto shrink-0 object-contain sm:h-9"
         priority
       />
-      <div
-        className={cn(
-          "text-[1.05rem] font-bold leading-none tracking-[-0.01em] sm:text-[1.2rem]",
-          dark ? "text-brand-dark" : "text-white"
-        )}
-      >
-        <span className={dark ? "text-brand-dark" : "text-white"}>Seats</span>
-        <span className="text-brand-orange">Group</span>
-      </div>
     </div>
   );
 }

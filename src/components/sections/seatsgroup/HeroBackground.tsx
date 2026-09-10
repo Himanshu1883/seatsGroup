@@ -4,9 +4,9 @@ import { useEffect, useState } from "react";
 import Image from "next/image";
 
 const SLIDES = [
-  "/images/hero-stadium-1.webp",
-  "/images/hero-stadium-2.jpg",
-  "/images/hero-stadium-3.jpg",
+  { src: "/images/hero_images (1).png", className: "sg-hero-slide-tickets" },
+  { src: "/images/hero_images (2).png", className: "sg-hero-slide-seats" },
+  { src: "/images/hero-image.png", className: "sg-hero-slide-pitch" },
 ] as const;
 
 const INTERVAL_MS = 6500;
@@ -30,15 +30,15 @@ export function HeroBackground() {
   return (
     <div className="sg-hero-bg" aria-hidden>
       <div className="sg-hero-slides">
-        {SLIDES.map((src, index) => (
+        {SLIDES.map((slide, index) => (
           <Image
-            key={src}
-            src={src}
+            key={slide.src}
+            src={slide.src}
             alt=""
             fill
             priority={index === 0}
             sizes="100vw"
-            className={`sg-hero-slide ${index === active ? "is-active" : ""}`}
+            className={`sg-hero-slide ${slide.className} ${index === active ? "is-active" : ""}`}
           />
         ))}
       </div>
