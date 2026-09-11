@@ -10,7 +10,7 @@ const SLIDES = [
   { src: "/images/hero_image1.png", className: "sg-hero-slide-stadium" },
 ] as const;
 
-const INTERVAL_MS = 6500;
+const INTERVAL_MS = 3500;
 
 export function HeroBackground() {
   const [active, setActive] = useState(0);
