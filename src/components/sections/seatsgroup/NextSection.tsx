@@ -21,7 +21,7 @@ const floatingIcons = [
 
 export function NextSection() {
   return (
-    <section className="sg-next relative overflow-hidden bg-white px-5 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-20">
+    <section id="story" className="sg-next relative overflow-hidden bg-white px-5 py-12 sm:px-8 sm:py-16 lg:px-12 lg:py-20">
       <div className="sg-section-bg" aria-hidden>
         <Image
           src="/images/section-next-bg.jpg"

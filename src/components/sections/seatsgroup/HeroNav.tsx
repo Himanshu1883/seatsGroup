@@ -1,7 +1,8 @@
 "use client";
 
-import { useEffect, useRef, useState } from "react";
+import { useCallback, useEffect, useRef, useState } from "react";
 import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
+import { ContactModal } from "@/components/sections/seatsgroup/ContactModal";
 import { SeatsGroupLogo } from "@/components/sections/seatsgroup/SeatsGroupLogo";
 
 const NAV_LINKS = [
@@ -16,7 +17,17 @@ const FADE_DISTANCE = 240;
 
 export function HeroNav() {
   const [open, setOpen] = useState(false);
+  const [contactOpen, setContactOpen] = useState(false);
   const navRef = useRef<HTMLElement>(null);
+
+  const openContact = useCallback(() => {
+    setOpen(false);
+    setContactOpen(true);
+  }, []);
+
+  const closeContact = useCallback(() => {
+    setContactOpen(false);
+  }, []);
 
   useEffect(() => {
     const update = () => {
@@ -33,6 +44,18 @@ export function HeroNav() {
       window.removeEventListener("scroll", update);
       window.removeEventListener("resize", update);
     };
+  }, []);
+
+  useEffect(() => {
+    const openFromHash = () => {
+      if (window.location.hash === "#contact") {
+        setContactOpen(true);
+      }
+    };
+
+    openFromHash();
+    window.addEventListener("hashchange", openFromHash);
+    return () => window.removeEventListener("hashchange", openFromHash);
   }, []);
 
   return (
@@ -52,12 +75,12 @@ export function HeroNav() {
         </nav>
 
         <div className="sg-nav-actions">
-          <a href="#contact" className="sg-nav-cta">
+          <button type="button" className="sg-nav-cta" onClick={openContact}>
             Get in Touch
             <span className="sg-nav-cta-icon" aria-hidden>
               <ArrowRight className="h-3.5 w-3.5" strokeWidth={2.2} />
             </span>
-          </a>
+          </button>
 
           <button
             type="button"
@@ -87,16 +110,14 @@ export function HeroNav() {
               {link.label}
             </a>
           ))}
-          <a
-            href="#contact"
-            className="sg-nav-sheet-cta"
-            onClick={() => setOpen(false)}
-          >
+          <button type="button" className="sg-nav-sheet-cta" onClick={openContact}>
             Get in Touch
             <ArrowRight className="h-4 w-4" strokeWidth={2.2} aria-hidden />
-          </a>
+          </button>
         </div>
       ) : null}
+
+      <ContactModal open={contactOpen} onClose={closeContact} />
     </header>
   );
 }
