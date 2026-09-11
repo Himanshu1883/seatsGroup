@@ -6,6 +6,7 @@ import Image from "next/image";
 const SLIDES = [
   { src: "/images/seatssource.png", className: "sg-hero-slide-seats" },
   { src: "/images/hero-image.png", className: "sg-hero-slide-venue" },
+  { src: "/images/hero-bg.png", className: "sg-hero-slide-live" },
   { src: "/images/hero_image1.png", className: "sg-hero-slide-stadium" },
 ] as const;
 
@@ -47,7 +48,7 @@ export function HeroBackground() {
         <div className="sg-hero-vignette" />
       </div>
 
-      <div className="sg-hero-ticks" aria-hidden>
+      {/* <div className="sg-hero-ticks" aria-hidden>
         {SLIDES.map((slide, index) => (
           <button
             key={slide.src}
@@ -59,7 +60,7 @@ export function HeroBackground() {
             {String(index + 1).padStart(2, "0")}
           </button>
         ))}
-      </div>
+      </div> */}
     </>
   );
 }

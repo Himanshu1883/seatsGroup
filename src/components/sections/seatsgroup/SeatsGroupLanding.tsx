@@ -16,14 +16,14 @@ const heroFeatureIcons = {
 
 export function SeatsGroupLanding() {
   return (
-    <div className="sg-page overflow-x-hidden bg-white text-brand-dark">
+    <div className="sg-page bg-white text-brand-dark">
+      <HeroNav />
+
       <main>
         <section id="top" className="sg-hero relative isolate text-white">
           <HeroBackground />
 
           <div className="sg-hero-shell">
-            <HeroNav />
-
             <div className="sg-hx">
               <p className="sg-hx-eyebrow">
                 <span className="sg-hx-dash" aria-hidden />

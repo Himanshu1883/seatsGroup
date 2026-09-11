@@ -23,24 +23,24 @@ export function SeatsGroupFooter() {
         <div className="grid gap-10 sm:grid-cols-2 lg:grid-cols-[1.15fr_0.7fr_0.7fr_1fr] lg:gap-8">
           <div>
             <SeatsGroupLogo className="flex items-center gap-3" />
-            <p className="mt-5 max-w-sm text-[13px] leading-relaxed text-white/70">
+            <p className="mt-5 max-w-sm text-[13px] leading-relaxed text-white/82">
               {seatsGroup.enquiryLabel}
             </p>
             <a
               href={`mailto:${seatsGroup.email}`}
-              className="mt-3 inline-flex items-center gap-2 text-[14px] font-semibold text-brand-icon hover:text-white"
+              className="mt-3 inline-flex items-center gap-2 text-[14px] font-semibold text-white hover:text-white/80"
             >
-              <Mail className="h-4 w-4 text-brand-plum" strokeWidth={1.8} />
+              <Mail className="h-4 w-4 text-white" strokeWidth={1.8} />
               {seatsGroup.email}
             </a>
             <div className="mt-5 space-y-2">
               {footer.phones.map((phone) => (
                 <p
                   key={phone.label}
-                  className="flex items-center gap-2 text-[13px] text-white/70"
+                  className="flex items-center gap-2 text-[13px]"
                 >
-                  <Phone className="h-3.5 w-3.5 text-brand-plum" strokeWidth={1.8} />
-                  <span className="text-white/45">{phone.label}</span>
+                  <Phone className="h-3.5 w-3.5 text-white/82" strokeWidth={1.8} />
+                  <span className="text-white/70">{phone.label}</span>
                   <span className="text-white">{phone.value}</span>
                 </p>
               ))}
@@ -48,13 +48,13 @@ export function SeatsGroupFooter() {
           </div>
 
           <div>
-            <p className="eyebrow text-brand-orange">Platforms</p>
+            <p className="eyebrow text-white">Platforms</p>
             <ul className="mt-4 space-y-2.5">
               {footer.platforms.map((item) => (
                 <li key={item.name}>
                   <a
                     href={item.href}
-                    className="text-[13.5px] text-white/70 transition-colors hover:text-white"
+                    className="text-[13.5px] text-white/82 transition-colors hover:text-white"
                   >
                     {item.name}
                   </a>
@@ -64,13 +64,13 @@ export function SeatsGroupFooter() {
           </div>
 
           <div>
-            <p className="eyebrow text-brand-orange">Company</p>
+            <p className="eyebrow text-white">Company</p>
             <ul className="mt-4 space-y-2.5">
               {footer.company.map((item) => (
                 <li key={item.name}>
                   <a
                     href={item.href}
-                    className="text-[13.5px] text-white/70 transition-colors hover:text-white"
+                    className="text-[13.5px] text-white/82 transition-colors hover:text-white"
                   >
                     {item.name}
                   </a>
@@ -80,19 +80,19 @@ export function SeatsGroupFooter() {
           </div>
 
           <div>
-            <p className="eyebrow text-brand-orange">Offices</p>
+            <p className="eyebrow text-white">Offices</p>
             <ul className="mt-4 space-y-4">
               {footer.offices.map((office) => (
                 <li key={office.city} className="flex gap-2.5">
-                  <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-brand-plum" strokeWidth={1.8} />
+                  <MapPin className="mt-0.5 h-4 w-4 shrink-0 text-white" strokeWidth={1.8} />
                   <div>
-                    <p className="text-[13.5px] font-semibold text-brand-icon">
+                    <p className="text-[13.5px] font-semibold text-white">
                       {office.city}
-                      <span className="ml-1.5 font-normal text-white/40">
+                      <span className="ml-1.5 font-normal text-white/70">
                         {office.region}
                       </span>
                     </p>
-                    <p className="mt-0.5 text-[12.5px] leading-snug text-white/65">
+                    <p className="mt-0.5 text-[12.5px] leading-snug text-white/82">
                       {office.address}
                     </p>
                   </div>
@@ -103,7 +103,7 @@ export function SeatsGroupFooter() {
         </div>
 
         <div className="mt-10 flex flex-col gap-4 border-t border-white/10 pt-6 sm:flex-row sm:items-center sm:justify-between">
-          <p className="font-tech text-[11px] tracking-wide text-white/40">
+          <p className="font-tech text-[11px] tracking-wide text-white/65">
             {seatsGroup.copyright}
           </p>
           <ul className="flex flex-wrap gap-x-5 gap-y-2">
@@ -111,7 +111,7 @@ export function SeatsGroupFooter() {
               <li key={item.name}>
                 <a
                   href={item.href}
-                  className="text-[12px] text-white/45 transition-colors hover:text-brand-orange"
+                  className="text-[12px] text-white/70 transition-colors hover:text-white"
                 >
                   {item.name}
                 </a>

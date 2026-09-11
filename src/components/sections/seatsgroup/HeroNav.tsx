@@ -1,6 +1,6 @@
 "use client";
 
-import { useState } from "react";
+import { useEffect, useRef, useState } from "react";
 import { ArrowRight, ChevronDown, Menu, X } from "lucide-react";
 import { SeatsGroupLogo } from "@/components/sections/seatsgroup/SeatsGroupLogo";
 
@@ -12,11 +12,31 @@ const NAV_LINKS = [
   { label: "Insights", href: "#insights" },
 ] as const;
 
+const FADE_DISTANCE = 240;
+
 export function HeroNav() {
   const [open, setOpen] = useState(false);
+  const navRef = useRef<HTMLElement>(null);
+
+  useEffect(() => {
+    const update = () => {
+      const t = Math.min(1, Math.max(0, window.scrollY / FADE_DISTANCE));
+      const eased = t * t * (3 - 2 * t);
+      navRef.current?.style.setProperty("--sg-nav-progress", eased.toFixed(3));
+    };
+
+    update();
+    window.addEventListener("scroll", update, { passive: true });
+    window.addEventListener("resize", update);
+
+    return () => {
+      window.removeEventListener("scroll", update);
+      window.removeEventListener("resize", update);
+    };
+  }, []);
 
   return (
-    <header className="sg-nav">
+    <header ref={navRef} className="sg-nav">
       <div className="sg-nav-inner">
         <a href="#top" className="sg-nav-brand" aria-label="SeatsGroup home">
           <SeatsGroupLogo />
