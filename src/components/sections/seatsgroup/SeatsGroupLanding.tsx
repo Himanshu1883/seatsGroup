@@ -1,11 +1,11 @@
-import { BarChart3, Boxes, Globe } from "lucide-react";
+import { ArrowRight, BarChart3, Boxes, Globe, Play } from "lucide-react";
 import { ConnectedSection } from "@/components/sections/seatsgroup/ConnectedSection";
-import { EcosystemCards } from "@/components/sections/seatsgroup/EcosystemCards";
 import { MoreThanTicketing } from "@/components/sections/seatsgroup/MoreThanTicketing";
 import { NextSection } from "@/components/sections/seatsgroup/NextSection";
 import { SeatsGroupFooter } from "@/components/sections/seatsgroup/SeatsGroupFooter";
 import { HeroBackground } from "@/components/sections/seatsgroup/HeroBackground";
-import { SeatsGroupLogo } from "@/components/sections/seatsgroup/SeatsGroupLogo";
+import { HeroNav } from "@/components/sections/seatsgroup/HeroNav";
+import { SolutionsRail } from "@/components/sections/seatsgroup/SolutionsRail";
 import { seatsGroup } from "@/lib/constants/seatsgroup";
 
 const heroFeatureIcons = {
@@ -18,71 +18,87 @@ export function SeatsGroupLanding() {
   return (
     <div className="sg-page overflow-x-hidden bg-white text-brand-dark">
       <main>
-        <section className="sg-hero relative isolate bg-[#0c0c0e] text-white">
+        <section id="top" className="sg-hero relative isolate text-white">
           <HeroBackground />
 
-          <div className="sg-hero-inner relative z-10 mx-auto w-full max-w-[88rem] px-4 pb-[max(1rem,env(safe-area-inset-bottom))] pt-[max(1.35rem,env(safe-area-inset-top))] sm:px-8 sm:pb-6 sm:pt-5 lg:px-12 lg:pb-7 lg:pt-6">
-            <div className="sg-hero-copy">
-              <SeatsGroupLogo />
-              <div className="sg-hero-headline-block">
-                <h1 className="heading text-[1.9rem] leading-[1.04] tracking-[-0.045em] text-white sm:text-[3.15rem] lg:text-[3.85rem] lg:leading-[1.03] xl:text-[4.25rem]">
-                  <span className="block">{seatsGroup.headlineLead}</span>
-                  <span className="sg-hero-accent sg-hero-accent-shine mt-1 block">
-                    <span className="sg-hero-accent-base">{seatsGroup.headlineAccent}</span>
-                    <span className="sg-hero-accent-blade" aria-hidden>
-                      {seatsGroup.headlineAccent}
-                    </span>
+          <div className="sg-hero-shell">
+            <HeroNav />
+
+            <div className="sg-hx">
+              <p className="sg-hx-eyebrow">
+                <span className="sg-hx-dash" aria-hidden />
+                Global Ticketing Infrastructure
+              </p>
+
+              <h1 className="sg-hx-title heading">
+                <span>{seatsGroup.headlineLead}</span>
+                <span className="sg-hero-accent sg-hero-accent-shine">
+                  <span className="sg-hero-accent-base">
+                    {seatsGroup.headlineAccent}
                   </span>
-                </h1>
-              </div>
-              <div className="sg-hero-copy-panel">
-                <div className="sg-hero-intro mx-auto max-w-[46rem]">
-                  <p className="sg-hero-intro-lead">
-                    <span className="sg-hero-brand">{seatsGroup.name}</span>
-                    {seatsGroup.intro[0].replace(seatsGroup.name, "")}
-                  </p>
-                  <p className="sg-hero-intro-sub hidden sm:block">
-                    {seatsGroup.intro[1]}
-                  </p>
-                </div>
-                <div className="sg-hero-highlights hidden md:flex">
-                  {seatsGroup.connectedFeatures.map((feature) => {
-                    const Icon = heroFeatureIcons[feature.icon];
-                    return (
-                      <div key={feature.label} className="sg-hero-highlight">
-                        <span className="sg-hero-highlight-icon">
-                          <Icon className="h-4 w-4 sm:h-[1.05rem] sm:w-[1.05rem]" strokeWidth={1.8} />
-                        </span>
-                        <span className="sg-hero-highlight-label">{feature.label}</span>
-                      </div>
-                    );
-                  })}
-                </div>
+                  <span className="sg-hero-accent-blade" aria-hidden>
+                    {seatsGroup.headlineAccent}
+                  </span>
+                </span>
+              </h1>
+
+              <p className="sg-hx-copy">{seatsGroup.intro[0]}</p>
+
+              <ul className="sg-hx-features">
+                {seatsGroup.connectedFeatures.map((feature) => {
+                  const Icon = heroFeatureIcons[feature.icon];
+                  return (
+                    <li key={feature.label} className="sg-hx-feature">
+                      <span className="sg-hx-feature-icon" aria-hidden>
+                        <Icon className="h-4 w-4" strokeWidth={1.7} />
+                      </span>
+                      <span className="sg-hx-feature-label">
+                        {feature.label}
+                      </span>
+                    </li>
+                  );
+                })}
+              </ul>
+
+              <div className="sg-hx-actions">
+                <a href="#solutions" className="sg-hx-cta">
+                  Explore Our Ecosystem
+                  <span className="sg-hx-cta-icon" aria-hidden>
+                    <ArrowRight className="h-4 w-4" strokeWidth={2.2} />
+                  </span>
+                </a>
+
+                <a href="#story" className="sg-hx-ghost">
+                  <span className="sg-hx-ghost-icon" aria-hidden>
+                    <Play className="h-3.5 w-3.5 fill-current" strokeWidth={0} />
+                  </span>
+                  Watch Our Story
+                </a>
               </div>
             </div>
 
-            <div className="sg-eco-follow">
-              <div className="sg-eco-block sg-soft-shade">
-                <div className="hidden justify-center sm:flex">
-                  <p className="sg-hero-pill">{seatsGroup.ecosystemEyebrow}</p>
-                </div>
-                <EcosystemCards />
+            <div id="solutions" className="sg-hx-rail-block">
+              <div className="sg-hx-rail-head">
+                <p className="sg-hx-eyebrow">
+                  <span className="sg-hx-dash" aria-hidden />
+                  Our Solutions
+                </p>
+                <p className="sg-hx-rail-sub">An End-to-End Ecosystem</p>
               </div>
 
-              <div className="sg-more-panel sg-soft-shade">
-                <div className="flex justify-center">
-                  <p className="sg-hero-pill">{seatsGroup.moreEyebrow}</p>
-                </div>
-                <p className="sg-more-copy hidden mx-auto max-w-3xl text-center text-[11px] leading-snug text-white lg:block lg:text-[13.5px]">
-                  {seatsGroup.moreText}
-                </p>
-                <MoreThanTicketing />
-              </div>
+              <SolutionsRail />
             </div>
           </div>
         </section>
 
         <div className="sg-stack">
+          <section className="sg-strip">
+            <div className="sg-strip-inner">
+              <p className="sg-strip-eyebrow">{seatsGroup.moreEyebrow}</p>
+              <p className="sg-strip-copy">{seatsGroup.moreText}</p>
+              <MoreThanTicketing />
+            </div>
+          </section>
           <ConnectedSection />
           <NextSection />
         </div>
